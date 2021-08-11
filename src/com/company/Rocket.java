@@ -2,9 +2,11 @@ package com.company;
 
 import org.jetbrains.annotations.NotNull;
 
-public class Rocket implements Spaceship{
+public class Rocket implements Spaceship {
     int weight = 0;
     int limit;
+    int cost;
+
 
     @Override
     public boolean launch() {
@@ -17,8 +19,8 @@ public class Rocket implements Spaceship{
     }
 
     @Override
-    public boolean canCarry() {
-        return weight <= limit;
+    public boolean canCarry(@NotNull Item item) {
+        return (weight + item.weight()) <= limit;
     }
 
     @Override
